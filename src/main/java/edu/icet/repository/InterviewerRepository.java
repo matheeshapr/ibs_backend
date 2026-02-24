@@ -1,4 +1,7 @@
 package edu.icet.repository;
 
-public interface InterviewerRepository {
+import edu.icet.model.entity.Interviewer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InterviewerRepository extends JpaRepository<Interviewer, Long> {
 }
