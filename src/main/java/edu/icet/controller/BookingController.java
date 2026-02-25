@@ -25,6 +25,12 @@ public class BookingController {
         return bookingService.getAllSlots();
     }
 
+    public List<InterviewSlotDTO> getInterviewerById(@PathVariable Long id){
+        return bookingService.getInterviewerById(id);
+    }
+
+
+
 
 
 
