@@ -2,10 +2,10 @@ package edu.icet.service;
 
 import edu.icet.model.dto.BookingDTO;
 import edu.icet.model.dto.InterviewSlotDTO;
+import edu.icet.model.entity.InterviewSlot;
 import edu.icet.repository.BookingRepository;
 import edu.icet.repository.CandidateRepository;
 import edu.icet.repository.InterviewSlotRepository;
-import edu.icet.repository.InterviewerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +21,17 @@ public class BookingService {
     @Autowired
     private CandidateRepository candidateRepository;
 
+
+
     public String createBooking(BookingDTO bookingDTO) {
-        return null;
+        InterviewSlot interviewSlot = interviewSlotRepository.findById(bookingDTO.getSlot().getId());
     }
 
-    public List<InterviewSlotDTO> getAllSlots() {
+    public List<InterviewSlot> getAllSlots() {
+        return interviewSlotRepository.findAll();
     }
 
-    public List<InterviewSlotDTO> getInterviewerById(Long id) {
+    public List<InterviewSlot> getInterviewerById(Long id) {
+        return interviewSlotRepository.findByInterviewerId(id);
     }
 }
