@@ -6,6 +6,7 @@ import edu.icet.repository.BookingRepository;
 import edu.icet.repository.CandidateRepository;
 import edu.icet.repository.InterviewSlotRepository;
 import edu.icet.repository.InterviewerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,11 @@ import java.util.List;
 @Service
 public class BookingService {
 
-
+    @Autowired
     private BookingRepository bookingRepository;
-
+    @Autowired
     private InterviewSlotRepository interviewSlotRepository;
-
+    @Autowired
     private CandidateRepository candidateRepository;
 
     public String createBooking(BookingDTO bookingDTO) {
