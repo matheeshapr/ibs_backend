@@ -1,7 +1,7 @@
 package edu.icet.controller;
 
 import edu.icet.model.dto.BookingDTO;
-import edu.icet.model.dto.InterviewSlotDTO;
+import edu.icet.model.entity.InterviewSlot;
 import edu.icet.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +21,12 @@ public class BookingController {
     }
 
     @GetMapping("/all-slot")
-    public List<InterviewSlotDTO> getAllSlots(){
+    public List<InterviewSlot> getAllSlots(){
         return bookingService.getAllSlots();
     }
 
     @GetMapping("/interviewer-by/{id}")
-    public List<InterviewSlotDTO> getInterviewerById(@PathVariable Long id){
+    public List<InterviewSlot> getInterviewerById(@PathVariable Long id){
         return bookingService.getInterviewerById(id);
     }
 
