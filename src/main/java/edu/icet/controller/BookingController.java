@@ -1,12 +1,12 @@
 package edu.icet.controller;
 
 import edu.icet.model.dto.BookingDTO;
+import edu.icet.model.dto.InterviewSlotDTO;
 import edu.icet.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/booking")
@@ -19,4 +19,13 @@ public class BookingController {
     public String createNewBooking(@RequestBody BookingDTO bookingDTO){
         return bookingService.createBooking(bookingDTO);
     }
+
+    @GetMapping("/all-slot")
+    public List<InterviewSlotDTO> getAllSlots(){
+        return bookingService.getAllSlots();
+    }
+
+
+
+
 }
