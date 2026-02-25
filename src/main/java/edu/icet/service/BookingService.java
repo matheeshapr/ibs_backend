@@ -15,4 +15,7 @@ public class BookingService {
 
     public List<InterviewSlotDTO> getAllSlots() {
     }
+
+    public List<InterviewSlotDTO> getInterviewerById(Long id) {
+    }
 }
