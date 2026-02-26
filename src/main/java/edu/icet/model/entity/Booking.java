@@ -13,8 +13,9 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Candidate candidate;
-    private InterviewSlot slot;
+
+    private Long candidateId;
+    private Long slotId;
     private String status = "CONFIRMED"; // Default status
     private LocalDateTime createdAt = LocalDateTime.now();
 }
