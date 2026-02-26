@@ -1,7 +1,8 @@
 package edu.icet.service;
 
 import edu.icet.model.dto.BookingDTO;
-import edu.icet.model.dto.InterviewSlotDTO;
+import edu.icet.model.entity.Booking;
+import edu.icet.model.entity.Candidate;
 import edu.icet.model.entity.InterviewSlot;
 import edu.icet.repository.BookingRepository;
 import edu.icet.repository.CandidateRepository;
@@ -9,7 +10,9 @@ import edu.icet.repository.InterviewSlotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -24,7 +27,7 @@ public class BookingService {
 
 
     public String createBooking(BookingDTO bookingDTO) {
-        InterviewSlot interviewSlot = interviewSlotRepository.findById(bookingDTO.getSlot().getId());
+
     }
 
     public List<InterviewSlot> getAllSlots() {
