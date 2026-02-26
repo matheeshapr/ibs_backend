@@ -16,15 +16,17 @@ import java.util.List;
 public class BookingService {
 
     @Autowired
-    private BookingRepository bookingRepository;
+    BookingRepository bookingRepository;
     @Autowired
-    private InterviewSlotRepository interviewSlotRepository;
+    InterviewSlotRepository interviewSlotRepository;
     @Autowired
-    private CandidateRepository candidateRepository;
+    CandidateRepository candidateRepository;
 
 
 
-    public String createBooking(BookingDTO bookingDTO) {
+    public String createBooking(Booking booking) {
+        bookingRepository.save(booking);
+
     }
 
     public List<InterviewSlot> getAllSlots() {
