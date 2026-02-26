@@ -1,10 +1,15 @@
 package edu.icet.model.dto;
 
 import edu.icet.model.entity.Interviewer;
-import lombok.Data;
+import lombok.*;
+
 import java.time.LocalDateTime;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class InterviewSlotDTO {
     private Long id;
     private Interviewer interviewer;
