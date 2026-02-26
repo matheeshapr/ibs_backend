@@ -13,7 +13,8 @@ public class InterviewSlot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Interviewer interviewer;
+
+    private Long interviewerId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private boolean isBooked = false;
