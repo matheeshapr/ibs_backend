@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class BookingDTO {
     private Long id;
     private Candidate candidate;
-    private InterviewSlot slot;
+    private InterviewSlot slotId;
     private String status = "CONFIRMED"; // Default status
     private LocalDateTime createdAt = LocalDateTime.now();
 }
