@@ -1,6 +1,7 @@
 package edu.icet.controller;
 
 import edu.icet.model.dto.BookingDTO;
+import edu.icet.model.entity.Booking;
 import edu.icet.model.entity.InterviewSlot;
 import edu.icet.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping("/create")
-    public String createNewBooking(@RequestBody BookingDTO bookingDTO){
-        return bookingService.createBooking(bookingDTO);
+    public String createNewBooking(@RequestBody Booking booking){
+        return bookingService.createBooking(booking);
     }
 
     @GetMapping("/all-slot")
