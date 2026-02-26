@@ -1,8 +1,12 @@
 package edu.icet.model.dto;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 public class CandidateDTO {
     private Long id;
     private String name;
