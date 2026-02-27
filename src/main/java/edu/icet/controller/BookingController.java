@@ -21,8 +21,15 @@ public class BookingController {
         return bookingService.createBooking(booking);
     }
 
+    @GetMapping("/all-bookings")
+    public List<Booking> getAllBookings(){
+        System.out.println(bookingService.getAllBookings());
+        return bookingService.getAllBookings();
+    }
+
     @GetMapping("/all-slot")
     public List<InterviewSlot> getAllSlots(){
+        System.out.println(bookingService.getAllSlots());
         return bookingService.getAllSlots();
     }
 
