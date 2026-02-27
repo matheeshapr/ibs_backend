@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @Setter
 public class InterviewSlotDTO {
     private Long id;
-    private Interviewer interviewer;
+
+    private Long interviewer;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private boolean isBooked = false;
