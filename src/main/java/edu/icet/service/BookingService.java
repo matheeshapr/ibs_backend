@@ -12,40 +12,52 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
 
     @Autowired
-    BookingRepository bookingRepository;
+    private BookingRepository bookingRepository;
     @Autowired
-    InterviewSlotRepository interviewSlotRepository;
+    private InterviewSlotRepository interviewSlotRepository;
     @Autowired
-    CandidateRepository candidateRepository;
+    private CandidateRepository candidateRepository;
 
 
 
     public String createBooking(Booking booking) {
+            Optional<InterviewSlot> slotOptional = interviewSlotRepository.findById(booking.getSlotId());
 
-        InterviewSlot slot = interviewSlotRepository.findById(booking.getSlotId()).get();
+            if (slotOptional.isEmpty()) {
+                return "ERROR:\n" +
+                        "Slot with this ID does not exist in the system!";
+            }
 
-        if (slot.isBooked()) {
-            return "Already Booked!";
-        }
+            InterviewSlot slot = slotOptional.get();
 
-        booking.setStatus("CONFIRMED");
-        booking.setCreatedAt(LocalDateTime.now());
+            if (slot.isBooked()) {
+                return "ERROR:\n" +
+                        "This time slot is already booked by someone else!";
+            }
 
-        bookingRepository.save(booking);
+            if (slot.getStartTime().isBefore(LocalDateTime.now())) {
+                return "ERROR\n:" +
+                        "Bookings cannot be made for past time slots!";
+            }
 
-        slot.setBooked(true);
-        interviewSlotRepository.save(slot);
+            booking.setStatus("CONFIRMED");
+            booking.setCreatedAt(LocalDateTime.now());
+            bookingRepository.save(booking);
 
-        System.out.println(bookingRepository.save(booking));
-        return "Booking Success!";
-    }
-    public List<InterviewSlot> getAllSlots() {
-        return interviewSlotRepository.findAll();
+            slot.setBooked(true);
+            interviewSlotRepository.save(slot);
+
+            System.out.println("SIMULATION: Email sent to Candidate for slot: " + slot.getStartTime());
+
+            return "Success\n:" +
+                    "Booking completed successfully!";
+
     }
 
     public List<InterviewSlot> getInterviewerById(Long id) {
