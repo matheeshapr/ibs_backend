@@ -27,12 +27,6 @@ public class BookingController {
         return bookingService.getAllBookings();
     }
 
-    @GetMapping("/all-slot")
-    public List<InterviewSlot> getAllSlots(){
-        System.out.println(bookingService.getAllSlots());
-        return bookingService.getAllSlots();
-    }
-
     @GetMapping("/interviewer-by/{id}")
     public List<InterviewSlot> getInterviewerById(@PathVariable Long id){
         return bookingService.getInterviewerById(id);
