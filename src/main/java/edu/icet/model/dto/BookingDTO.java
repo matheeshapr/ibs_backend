@@ -13,7 +13,8 @@ import java.time.LocalDateTime;
 @Setter
 public class BookingDTO {
     private Long id;
-    private Candidate candidate;
+
+    private Long candidate;
     private InterviewSlot slotId;
     private String status = "CONFIRMED"; // Default status
     private LocalDateTime createdAt = LocalDateTime.now();
