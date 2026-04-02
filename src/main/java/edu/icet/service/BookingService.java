@@ -60,7 +60,7 @@ public class BookingService {
 
     }
 
-    public List<InterviewSlot> getInterviewerById(Long id) {
+    public List<InterviewSlot> getSlotsByInterviewerId(Long id) {
         return interviewSlotRepository.findByInterviewerId(id);
     }
 
