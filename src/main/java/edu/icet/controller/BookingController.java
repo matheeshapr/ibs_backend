@@ -30,6 +30,6 @@ public class BookingController {
 
     @GetMapping("/interviewer-by/{id}")
     public List<InterviewSlot> getInterviewerById(@PathVariable Long id){
-        return bookingService.getInterviewerById(id);
+        return bookingService.getSlotsByInterviewerId(id);
     }
 }
