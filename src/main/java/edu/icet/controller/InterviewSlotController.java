@@ -8,15 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/interview-slot")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class InterviewSlotController {
 
     @Autowired
     private InterviewSlotService interviewSlotService;
-
-//    public InterviewSlotController(InterviewSlotService interviewSlotService) {
-//        this.interviewSlotService = interviewSlotService;
-//    }
 
     @PostMapping("/add")
     public InterviewSlot addSlot(@RequestBody InterviewSlot interviewSlot) {
