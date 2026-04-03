@@ -1,5 +1,6 @@
 package edu.icet.controller;
 
+import edu.icet.model.dto.CandidateDTO;
 import edu.icet.model.entity.Candidate;
 import edu.icet.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,11 @@ public class CandidateController {
     @GetMapping("/get-all")
     public List<Candidate> getAllCandidate(){
         return candidateService.getAll();
+    }
+
+    @PostMapping("/register")
+    public String register(@RequestBody CandidateDTO dto) {
+        candidateService.registerCandidate(dto);
+        return "Registration Successful!";
     }
 }
